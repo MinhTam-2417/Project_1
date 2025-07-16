@@ -7,7 +7,7 @@ class Router{
             'method' => $method,
             'pattern' => $pattern,
             'controller' => $controller
-        ]
+        ];
     }
     // xử lý yêu cầu
     public function dispatch($uri, $method){
@@ -17,12 +17,13 @@ class Router{
                 list($controller, $action) = explode('@', $route['controller']);
                 array_shift($matches); // loại bỏ phần đầu tiên (URI)
                 $controllerFile = "../controllers/$controller.php";
-                if (!file_exists($controllerFile)) {
+                if (file_exists($controllerFile)) { // Sửa lại điều kiện kiểm tra file
                     require_once $controllerFile;
-                    $controller = str_replace('/', '\\', $controller);
-                    $controllerInstance = new $controller();
+                    $controllerClass = $controller; 
+                    $controllerInstance = new $controllerClass();
                     call_user_func_array([$controllerInstance, $action], $matches);
                     return;
+                }
                 // return call_user_func_array([$controller, 'handle'], $matches);
             }
         }

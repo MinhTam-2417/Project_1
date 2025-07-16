@@ -2,7 +2,7 @@
 class Controller {
     //hiển thị view
     protected function render($view, $data = []) {
-        extaract($data);
+        extract($data);
         require_once "views/{$view}.php";
     }
     // chuyển hướng 
@@ -13,7 +13,7 @@ class Controller {
     protected function isAuthenticated($role = null) {
            session_start();
            if (!isset($_SESSION['user_id'])) {
-               this->redirect('/login');
+               $this->redirect('/login');
            }
               if ($role && $_SESSION['role'] !== $role) {
                 $this->redirect('/');

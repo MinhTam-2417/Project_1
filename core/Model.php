@@ -17,7 +17,7 @@ class Model  {
     //lấy bảng ghi theo id
     public function find($id){
         $return = $this-> db->query("SELECT * FROM {$this->table} WHERE id = ?", [$id]);
-        return $reutrn ? $return[0] : null;
+        return $return ? $return[0] : null;
     }
 }
 ?>
