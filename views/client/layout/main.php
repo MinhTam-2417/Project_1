@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
+    <?php include 'views/client/layout/header.php'; ?>
+    <!-- <header>
         <a href="">Trang chủ</a>
         <a href="/login">Đăng nhập</a>
         <a href="/register">Đăng ký</a>
-    </header>
+    </header> -->
     <main>
-        <footer>
+        <!-- <footer>
             <p>&copy; 2025 Blog Minui</p>
-        </footer>
+        </footer> -->
         <script  src="/js/script.js"></script>
     </main>
+    <?php include 'views/client/layout/footer.php'; ?>
 </body>
 </html>
